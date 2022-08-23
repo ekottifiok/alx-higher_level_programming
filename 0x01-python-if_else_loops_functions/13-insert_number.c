@@ -9,14 +9,19 @@ listint_t *insert_node(listint_t **head, int number)
 	if (!newNode)
 		return (NULL);
 	newNode->n = number;
-	buffer1 = *head;
 
 	if (*head == NULL)
 	{
 		*head = newNode;
 	}
+	else if (number < (*head)->n)
+	{
+		newNode->next = *head;
+		*head = newNode;
+	}
 	else
 	{
+		buffer1 = *head;
 		while (buffer1->next)
 		{
 			buffer2 = buffer1->next;
