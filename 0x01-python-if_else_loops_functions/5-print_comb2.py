@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 for i in range(99):
     if i == 98:
-        print(i)
+        print("{}".format(i))
         break
-    print(f"{i:02d}", end=", ")
+    print("{:02d}".format(i), end=", ")
