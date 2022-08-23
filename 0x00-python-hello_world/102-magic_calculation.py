@@ -1,4 +1,4 @@
-def magic_calculation(a,b)
+def magic_calculation(a,b):
     b = a ** b
-    b += a
+    b += 98
     return (b)
