@@ -6,8 +6,8 @@ set(CMAKE_C_STANDARD 11)
 include_directories(.)
 
 add_executable(
-    check_linked_list
-    10-main.c
-    10-check_cycle.c
-    10-linked_lists.c
+    insert
+    13-main.c
+    13-insert_number.c
+    linked_lists.c
 )

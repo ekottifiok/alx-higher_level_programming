@@ -1,1 +1,6 @@
-build
+/build
+*/__pycache__
+/scratch
+*/Makefile
+*/CMakeFiles
+.vscode/settings.json

@@ -10,8 +10,7 @@ int check_cycle(listint_t *list)
 {
     listint_t *buffer;
     
-    buffer = list;
-    for (buffer = buffer->next; buffer; buffer = buffer->next)
+    for (buffer = list->next; buffer; buffer = buffer->next)
     {
         if (buffer == list) 
             return (1);
