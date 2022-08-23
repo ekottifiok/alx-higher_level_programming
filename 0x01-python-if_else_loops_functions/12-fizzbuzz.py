@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-from traceback import print_tb
-
 
 def fizzbuzz():
     for i in range(1, 101):
