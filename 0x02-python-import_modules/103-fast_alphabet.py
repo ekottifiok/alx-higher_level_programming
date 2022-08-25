@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-print(x for x in range(1, 27))
+from string import ascii_lowercase
+print(ascii_lowercase[:26])
