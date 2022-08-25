@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-from string import ascii_lowercase
-print(ascii_lowercase[:26])
+from string import ascii_uppercase
+print(ascii_uppercase[:26])
