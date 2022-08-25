@@ -1,9 +1,12 @@
 #!/usr/bin/python3
-from variable_load_5 import a
+import hidden_4
 
 
 def main():
-    print(a)
+    for s in dir(hidden_4):
+        if "__" in s:
+            continue
+        print("{}".format(s))
 
 
 if __name__ == '__main__':
