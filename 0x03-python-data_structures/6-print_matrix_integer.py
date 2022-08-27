@@ -1,11 +1,12 @@
 def print_matrix_integer(matrix=[[]]):
-    
+    test = 0
     for i in matrix:
-        l = 0
+
         for j in i:
-            if l == 0:
+            if test == 0:
                 print("{}".format(j), end='')
+                test = 1
             else:
                 print(" {}".format(j), end='')
-            l += 1
         print('')
+        test = 0
