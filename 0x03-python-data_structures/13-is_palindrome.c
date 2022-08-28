@@ -29,7 +29,8 @@ listint_t *add_node(listint_t **head, int n)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *buffer1, *buffer2 = NULL;
+	listint_t *buffer1, *buffer2 = NULL, *buffer2_copy;
+	unsigned int return_int;
 
 	if (!(*head))
 		return (1);
@@ -40,11 +41,14 @@ int is_palindrome(listint_t **head)
 			break;
 		add_node(&buffer2, buffer1->n);
 	}
-
+	buffer2_copy = buffer2;
 	for (; buffer1 && buffer2 && buffer1->n == buffer2->n;
 		 buffer1 = buffer1->next, buffer2 = buffer2->next)
 		;
 	if (!buffer1 && !buffer2)
-		return (1);
-	return (0);
+		return_int = 1;
+	else
+		return_int = 0;
+	free_listint(buffer2_copy);
+	return (return_int);
 }
