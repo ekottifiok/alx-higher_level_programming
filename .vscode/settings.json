@@ -1,3 +1,6 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}/0x01-python-if_else_loops_functions"
+    "cmake.sourceDirectory": "${workspaceFolder}/0x03-python-data_structures",
+    "files.associations": {
+        "lists.h": "c"
+    }
 }
