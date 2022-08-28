@@ -31,6 +31,8 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *buffer1, *buffer2 = NULL;
 
+	if (!(*head))
+		return (1);
 	buffer1 = *head;
 	for (; buffer1; buffer1 = buffer1->next)
 	{
