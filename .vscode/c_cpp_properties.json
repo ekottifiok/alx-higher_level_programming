@@ -13,11 +13,15 @@
             "intelliSenseMode": "linux-gcc-x64",
             "configurationProvider": "ms-vscode.makefile-tools",
             "compilerArgs": [
-                "-lpython3.4m",
-                "-lpthread",
-                "-ldl",
-                "-lutil",
-                "-lm"
+                "-Wall",
+                "-Werror",
+                "-Wextra",
+                "-pedantic",
+                "-std=c99",
+                "-shared",
+                "-Wl",
+                "-soname",
+                "-fPIC"
             ]
         }
     ],
