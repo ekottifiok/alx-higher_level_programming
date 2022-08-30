@@ -30,7 +30,7 @@ listint_t *add_node(listint_t **head, int n)
 int is_palindrome(listint_t **head)
 {
 	listint_t *buffer1, *buffer2 = NULL, *buffer2_copy;
-	unsigned int return_int;
+	unsigned int ret_int;
 
 	if (!(*head))
 		return (1);
@@ -46,9 +46,9 @@ int is_palindrome(listint_t **head)
 		 buffer1 = buffer1->next, buffer2 = buffer2->next)
 		;
 	if (!buffer1 && !buffer2)
-		return_int = 1;
+		ret_int = 1;
 	else
-		return_int = 0;
+		ret_int = 0;
 	free_listint(buffer2_copy);
-	return (return_int);
+	return (ret_int);
 }
