@@ -1,72 +1,72 @@
 #include "lists.h"
 
+listint_t *reverse_listint(listint_t **head);
+int is_palindrome(listint_t **head);
 
 /**
- * free_listint_mine - frees a listint_t list
- * @head: pointer to list to be freed
- * Return: void
- */
-void free_listint_mine(listint_t *head)
-{
-    listint_t *current;
-
-    while (head != NULL)
-    {
-        current = head;
-        head = head->next;
-        free(current);
-    }
-}
-
-/**
- * add_node - adds a node pointer
+ * reverse_listint - Reverses a singly-linked listint_t list.
+ * @head: A pointer to the starting node of the list to reverse.
  *
- * @head: the pointer to the head pointer
- * @n: the new integer
- * Return: list_t*
+ * Return: A pointer to the head of the reversed list.
  */
-listint_t *add_node(listint_t **head, int n)
+listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *node;
+	listint_t *node = *head, *next, *prev = NULL;
 
-	node = malloc(sizeof(listint_t));
-	if (!node)
-		return (NULL);
-	node->n = n;
-	node->next = *head;
-	*head = node;
+	while (node)
+	{
+		next = node->next;
+		node->next = prev;
+		prev = node;
+		node = next;
+	}
+
+	*head = prev;
 	return (*head);
 }
 
-
 /**
- * is_palindrome - checks if a listint_t is a palindrome
- * @head: the listint_t to be checked
+ * is_palindrome - Checks if a singly linked list is a palindrome.
+ * @head: A pointer to the head of the linked list.
  *
- * Return: 1 if it is, 0 it's not
+ * Return: If the linked list is not a palindrome - 0.
+ *         If the linked list is a palindrome - 1.
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *buffer1, *buffer2 = NULL, *buffer2_copy;
-	unsigned int ret_int;
+	listint_t *tmp, *rev, *mid;
+	size_t size = 0, i;
 
-	if (!(*head))
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	buffer1 = *head;
-	for (; buffer1; buffer1 = buffer1->next)
+
+	tmp = *head;
+	while (tmp)
 	{
-		if (buffer2 && buffer1->n == buffer2->n)
-			break;
-		add_node(&buffer2, buffer1->n);
+		size++;
+		tmp = tmp->next;
 	}
-	buffer2_copy = buffer2;
-	for (; buffer1 && buffer2 && buffer1->n == buffer2->n;
-		 buffer1 = buffer1->next, buffer2 = buffer2->next)
-		;
-	if (!buffer1 && !buffer2)
-		ret_int = 1;
-	else
-		ret_int = 0;
-	free_listint_mine(buffer2_copy);
-	return (ret_int);
+
+	tmp = *head;
+	for (i = 0; i < (size / 2) - 1; i++)
+		tmp = tmp->next;
+
+	if ((size % 2) == 0 && tmp->n != tmp->next->n)
+		return (0);
+
+	tmp = tmp->next->next;
+	rev = reverse_listint(&tmp);
+	mid = rev;
+
+	tmp = *head;
+	while (rev)
+	{
+		if (tmp->n != rev->n)
+			return (0);
+		tmp = tmp->next;
+		rev = rev->next;
+	}
+	reverse_listint(&mid);
+
+	return (1);
 }
