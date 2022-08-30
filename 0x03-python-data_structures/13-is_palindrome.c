@@ -1,5 +1,23 @@
 #include "lists.h"
 
+
+/**
+ * free_listint_mine - frees a listint_t list
+ * @head: pointer to list to be freed
+ * Return: void
+ */
+void free_listint_mine(listint_t *head)
+{
+    listint_t *current;
+
+    while (head != NULL)
+    {
+        current = head;
+        head = head->next;
+        free(current);
+    }
+}
+
 /**
  * add_node - adds a node pointer
  *
@@ -49,6 +67,6 @@ int is_palindrome(listint_t **head)
 		ret_int = 1;
 	else
 		ret_int = 0;
-	free_listint(buffer2_copy);
+	free_listint_mine(buffer2_copy);
 	return (ret_int);
 }
