@@ -1,5 +1,5 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}/0x03-python-data_structures",
+    "cmake.sourceDirectory": "${workspaceFolder}/0x00-python-hello_world",
     "files.associations": {
         "assert.h": "c",
         "types.h": "c"
