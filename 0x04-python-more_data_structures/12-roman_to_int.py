@@ -1,42 +1,31 @@
 #!/usr/bin/python3
 
-import string
-from unittest import result
-
 
 def roman_to_int(roman_string):
-    result = 0
-    prev = 0
-    chain = 0
-    roman = {
-        "I": 1,
-        "V": 5,
-        "X": 10,
-        "L": 50,
-        "C": 100,
-        "D": 500,
-        "M": 1000
+    """Converts a roman numeral to an integer."""
+    if (not isinstance(roman_string, str) or
+            roman_string is None):
+        return (0)
+
+    roman_dict = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000
     }
-    if isinstance(roman_string, string):
-        for str in roman_string:
-            str_int = 0 if str not in roman.keys() else roman.get(str)
-            if str_int == 0:
-                return 0
-            if prev == str_int:
-                # if chain == 0:
-                #     chain = prev
-                chain += str_int
-            elif prev != 0 and prev < str_int:
-                result -= prev + chain
-                result += str_int - prev
-                chain = 0
-            elif result < str_int and result != 0:
-                result = str_int - result
-            else:
-                result += str_int + chain
-                chain = 0
-            prev = str_int
-        if chain != 0:
-            result += chain
-        return result if result > 0 else 0
-    return None
+    num = 0
+
+    for i in range(len(roman_string)):
+        if roman_dict.get(roman_string[i], 0) == 0:
+            return (0)
+
+        if (i != (len(roman_string) - 1) and
+                roman_dict[roman_string[i]] < roman_dict[roman_string[i + 1]]):
+                num += roman_dict[roman_string[i]] * -1
+
+        else:
+            num += roman_dict[roman_string[i]]
+    return (num)
