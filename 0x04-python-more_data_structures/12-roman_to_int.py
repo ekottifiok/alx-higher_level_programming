@@ -20,6 +20,8 @@ def roman_to_int(roman_string):
     if isinstance(roman_string, string):
         for str in roman_string:
             str_int = 0 if str not in roman.keys() else roman.get(str)
+            if str_int == 0:
+                return 0
             if prev == str_int:
                 # if chain == 0:
                 #     chain = prev
