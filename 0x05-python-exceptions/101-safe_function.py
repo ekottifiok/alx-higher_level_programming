@@ -6,5 +6,5 @@ def safe_function(fct, *args):
     try:
         return float(fct(*args))
     except (IndexError, ValueError, ZeroDivisionError, TypeError) as err:
-        print(f"Exception: {err.__str__()}", file=stderr)
+        print("Exception: {}".format(err.__str__()), file=stderr)
         return None
