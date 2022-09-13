@@ -5,10 +5,7 @@ from sys import stderr
 def safe_print_integer_err(value):
     try:
         print("{:d}".format(value))
-    except IndexError:
-        print("Exception: IndexError", file=stderr)
-        return False
-    except ValueError:
-        print("Exception: ValueError", file=stderr)
+    except (ValueError, TypeError) as err:
+        print(f"Exception: {err.__str__()}", file=stderr)
         return False
     return True
