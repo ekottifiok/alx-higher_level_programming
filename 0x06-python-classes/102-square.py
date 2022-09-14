@@ -30,10 +30,10 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = size
-    
+
     def __str__(self):
         return str(self.__size)
-    
+
     def area(self):
         """returns the area of the square
 

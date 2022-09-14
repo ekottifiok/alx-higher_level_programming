@@ -14,6 +14,7 @@ that prints in stdout the square with the character
     if size is equal to 0, print an empty line
     position should be use by using space -
     Dont fill lines by spaces when position[1] > 0
+added the __str__ to work like the my_print function
 """
 
 
@@ -36,8 +37,13 @@ class Square:
         else:
             self.__size = size
             self.__position = position
-            
+
     def __str__(self):
+        """prints the class
+
+        Returns:
+            str: the string to be printed
+        """
         to_print = ''
         if self.__size != 0:
             if self.__position[1] != 0:
@@ -106,12 +112,12 @@ class Square:
     def my_print(self):
         """Prints the square in form of an asterisk
         """
-        
+
         if self.__size != 0:
             if self.__position[1] != 0:
-                    print('\n' * self.__position[1])
+                print('\n' * self.__position[1])
             for i in range(self.size):
-                
+
                 if self.position[0] > 0:
                     for i in range(self.position[0]):
                         print(" ", end="")
