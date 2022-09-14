@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import math
-"""Magic class
+"""
+Module Magic class
 
 Raises:
     TypeError: ensures the type is int or float
@@ -8,6 +8,7 @@ Raises:
 Returns:
     int: the area and circumference
 """
+import math
 
 
 class MagicClass:

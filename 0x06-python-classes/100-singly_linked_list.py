@@ -1,4 +1,14 @@
 #!/usr/bin/python3
+"""Module Node
+
+Raises:
+    TypeError: checks if data is an integer
+    TypeError: checks if next_node is a Node type
+
+Returns:
+    int, node: the content of the data and next_node
+"""
+
 
 class Node:
     def __init__(self, data, next_node=None):
@@ -60,6 +70,12 @@ class Node:
 
 
 class SinglyLinkedList(Node):
+    """SinglyLinkedList is a child of the Node class
+
+    Args:
+        Node (Node): the main idea behind the singly linked list
+    """
+
     def __init__(self):
         """initializes an instance of this class
         """
