@@ -109,7 +109,7 @@ class SinglyLinkedList(Node):
             self.__head = Node(value, self.__head)
         elif value > self.__head.data:
             buffer = self.__head
-            while buffer:
+            while buffer is not None:
                 if not buffer.next_node:
                     buffer.next_node = Node(value)
                     break
