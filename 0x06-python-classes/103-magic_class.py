@@ -15,7 +15,7 @@ class MagicClass:
     """the magic class
     """
 
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         """initializes an instance of the class
 
         Args:
