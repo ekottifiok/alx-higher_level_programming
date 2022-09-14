@@ -1,119 +1,75 @@
 #!/usr/bin/python3
-"""Module Node
-
-Raises:
-    TypeError: checks if data is an integer
-    TypeError: checks if next_node is a Node type
-
-Returns:
-    int, node: the content of the data and next_node
+""" Working with singly linked list in python
+    Class Node
+    Class SinglyLinkedList
 """
 
 
 class Node:
-    """Node framework for singly and doubly linked list
-    """
+    """Class constructor"""
+
     def __init__(self, data, next_node=None):
-        """Initializes an instance of this class
+        self.data = data
+        self.next_node = next_node
 
-        Args:
-            data (int): the integer to be added
-            next_node (Node, optional): next node to be added to the node.
-                Defaults to None.
-        """
-        self.__data = data
-        self.__next_node = next_node
-
+    """Data getter"""
     @property
     def data(self):
-        """accessor to the value of the list
-
-        Returns:
-            int: the value on the current list
-        """
         return self.__data
 
-    @data.setter
-    def data(self, value):
-        """the data setter
-
-        Args:
-            value (int): the value to be added to the list
-
-        Raises:
-            TypeError: checks that the data added is an integer
-        """
-        if not isinstance(value, int):
-            raise TypeError("data must be an integer")
-        self.__data = value
-
+    """Next_node getter"""
     @property
     def next_node(self):
-        """accessor to the next node
-
-        Returns:
-            Node : the node that the present node points to
-        """
         return self.__next_node
 
+    """Data setter"""
+    @data.setter
+    def data(self, value):
+        if type(value) is not int:
+            raise TypeError('data must be an integer')
+        self.__data = value
+
+    """Next_node setter"""
     @next_node.setter
     def next_node(self, value):
-        """to set the next node
-
-        Args:
-            value (Node): the node that the present node points to
-
-        Raises:
-            TypeError: makes sure that value is a Node
-        """
-        if value is not None and not isinstance(value, Node):
-            raise TypeError("next_node must be a Node object")
-        self.__next_node = value
+        if value is None or isinstance(value, Node):
+            self.__next_node = value
+        else:
+            raise TypeError('next_node must be a Node object')
 
 
-class SinglyLinkedList(Node):
-    """SinglyLinkedList is a child of the Node class
-
-    Args:
-        Node (Node): the main idea behind the singly linked list
-    """
+class SinglyLinkedList:
+    """Class constructor"""
 
     def __init__(self):
-        """initializes an instance of this class
-        """
         self.__head = None
 
-    def __str__(self):
-        """handles the printing of the instance
+    """print(obj) behavior"""
 
-        Returns:
-            str: the contents of the list
-        """
-        print_val = ''
-        head = self.__head
-        while head:
-            if head.next_node:
-                print_val += str(head.data) + '\n'
-            head = head.next_node
-        return print_val
+    def __str__(self):
+        actual = self.__head
+        to_print = ''
+        while actual:
+            to_print = to_print + str(actual.data)
+            if actual.next_node:
+                to_print = to_print + '\n'
+            actual = actual.next_node
+        return to_print
+
+    """Add node in sorted way"""
 
     def sorted_insert(self, value):
-        """adds a node to the linked list in a sorted way
-
-        Args:
-            value (int): the value to be added to the new node
-        """
         if self.__head is None:
             self.__head = Node(value)
         elif value <= self.__head.data:
             self.__head = Node(value, self.__head)
         elif value > self.__head.data:
-            buffer = self.__head
-            while buffer is not None:
-                if not buffer.next_node:
-                    buffer.next_node = Node(value)
+            actual = self.__head
+            while actual is not None:
+                if not actual.next_node:
+                    actual.next_node = Node(value)
                     break
-                elif value < buffer.next_node.data:
-                    buffer.next_node = Node(value, buffer.next_node)
+                elif value < actual.next_node.data:
+                    actual.next_node = Node(value, actual.next_node)
                     break
-                buffer = buffer.next_node
+                actual = actual.next_node
