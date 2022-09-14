@@ -66,7 +66,7 @@ class Node:
         Raises:
             TypeError: makes sure that value is a Node
         """
-        if value is not None or not isinstance(value, Node):
+        if value is not None and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
@@ -92,9 +92,9 @@ class SinglyLinkedList(Node):
         print_val = ''
         head = self.__head
         while head:
-            if self.data is not None:
-                print_val += self.data + '\n'
-            head = self.next_node
+            if head.next_node:
+                print_val += str(head.data) + '\n'
+            head = head.next_node
         return print_val
 
     def sorted_insert(self, value):
@@ -110,7 +110,7 @@ class SinglyLinkedList(Node):
         elif value > self.__head.data:
             buffer = self.__head
             while buffer:
-                if not buffer.ddnext_node:
+                if not buffer.next_node:
                     buffer.next_node = Node(value)
                     break
                 elif value < buffer.next_node.data:
