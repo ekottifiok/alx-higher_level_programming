@@ -11,6 +11,8 @@ Returns:
 
 
 class Node:
+    """Node framework for singly and doubly linked list
+    """
     def __init__(self, data, next_node=None):
         """Initializes an instance of this class
 
