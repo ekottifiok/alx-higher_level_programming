@@ -24,7 +24,7 @@ class MagicClass:
         Raises:
             TypeError: ensures the radius is either an int or float
         """
-        if type(radius) is not int or type(radius) is not float:
+        if type(radius) is not float and type(radius) is not int:
             raise TypeError('radius must be a number')
         self._MagicClass__radius = radius
 
