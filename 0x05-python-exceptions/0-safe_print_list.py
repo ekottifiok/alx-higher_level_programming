@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 
 def safe_print_list(my_list=[], x=0):
-    if my_list == [] or x == 0:
-        return
-    i = 0
-    for j in range(0, x):
-        try:
-            print("{:d}".format(my_list[j]), end="")
-            i += 1
-        except (IndexError, TypeError):
-            break
+    idx = 0
 
-    print()
-    return i
+    try:
+        for i in my_list:
+            if idx < x:
+                print("{}".format(my_list[idx]), end="")
+                idx += 1
+        print()
+    except (TypeError, IndexError,):
+        pass
+    finally:
+        return idx
