@@ -41,12 +41,13 @@ class Rectangle:
         return self.__height * self.__width
 
     def perimeter(self):
-        if self.__width > 0 or self.__height > 0:
+        if self.__width > 0 and self.__height > 0:
             return (self.__height * 2) + (self.__width * 2)
+        return 0
 
     def __str__(self) -> str:
         value = ""
-        if self.__width > 0 or self.__height > 0:
+        if self.__width > 0 and self.__height > 0:
             for i in range(self.__height):
                 value += ("#"*self.__width)
                 value += '\n'
