@@ -1,0 +1,57 @@
+============================
+0-add_integer.py
+============================
+
+The add function has a header of ``add_integer(a, b=98)`` so passing b is optional
+by default b = 98. The result will always be an integer.
+
+Usage
+=====
+
+Works with positive numbers 
+
+::
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(328982, 9384)
+    338366
+
+Works with negative numbers or a mix
+
+::
+    >>> add_integer(-9, 4)
+    -5
+    >>> add_integer(-932, -3232)
+    -4164
+
+Works with only one argument because b = 98
+
+::
+    >>> add_integer(-200)
+    -102
+
+Works with floating number
+::
+    >>> add_integer(-9.34, 4.3232)
+    -5
+
+Works with a mix of floating and integers
+::
+    >>> add_integer(-334.243, 8)
+    -326
+
+Returns an error if the number is neither a float or integer
+::
+    >>> add_integer("hello")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+::
+    >>> add_integer(5, "43")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+::
+    >>> add_integer(float("hello"))
+    Traceback (most recent call last):
+    ValueError: could not convert string to float: 'hello'
