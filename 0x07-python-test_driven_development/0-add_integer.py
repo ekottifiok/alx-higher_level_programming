@@ -1,6 +1,4 @@
-"""Adds two numbers and makes sure they are of type int or float
-"""
-
+#!/usr/bin/python3
 
 def add_integer(a, b=98):
     """adds two numbers together
@@ -19,4 +17,4 @@ def add_integer(a, b=98):
         raise TypeError("a must be an integer")
     elif type(b) not in [int, float]:
         raise TypeError("b must be an integer")
-    print(int(a + b))
+    print(int(a) + int(b))
