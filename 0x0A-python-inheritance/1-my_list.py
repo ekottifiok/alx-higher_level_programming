@@ -12,7 +12,7 @@ class MyList(list):
     Args:
         list (list): builtin class
     """
-    def __str__(self) -> str:
+    def __str__(self):
         """handles the print of the class
 
         Returns:
@@ -23,4 +23,4 @@ class MyList(list):
     def print_sorted(self):
         """prints a sorted version of the list
         """
-        print(sorted(list(i for i in self)))
+        print(sorted(self))
