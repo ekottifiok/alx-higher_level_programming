@@ -15,4 +15,9 @@ class Square(Rectangle):
     """
 
     def __init__(self, size: int):
+        """initializes the class
+
+        Args:
+            size (int): size of the square
+        """
         super().__init__(size, size)

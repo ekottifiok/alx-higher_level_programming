@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""add attributes if it doesn't exist
+"""
+
+
 def add_attribute(obj: any, new_attr: str, value: str):
     """adds a new attribute to an object
 
