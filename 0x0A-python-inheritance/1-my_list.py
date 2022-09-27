@@ -12,8 +12,15 @@ class MyList(list):
     Args:
         list (list): builtin class
     """
-    def __str__(self):
+    def __str__(self) -> str:
+        """handles the print of the class
+
+        Returns:
+            str: returns a list of the class
+        """
         return str(list(i for i in self))
 
     def print_sorted(self):
+        """prints a sorted version of the list
+        """
         print(sorted(list(i for i in self)))
