@@ -17,7 +17,7 @@ class MyInt(int):
         """initializes the class
 
         Args:
-            x (int): setups a class 
+            x (int): setups a class
         """
         if isinstance(x, int):
             self.__x = x
@@ -34,7 +34,7 @@ class MyInt(int):
         return self.__x != __y
 
     def __ne__(self, __y: object):
-        """if not equal to 
+        """if not equal to
 
         Args:
             __y (object): the object to be compared
