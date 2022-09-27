@@ -20,8 +20,8 @@ class Square(Rectangle):
         Args:
             size (int): size of the square
         """
-        super().__init__(size, size)
         super().integer_validator("size", size)
+        super().__init__(size, size)
         self.__size = size
 
     def __str__(self):
