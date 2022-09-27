@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""checks if the object is of the same class"""
 
 def is_same_class(obj, a_class):
     """returns True if the object is exactly
