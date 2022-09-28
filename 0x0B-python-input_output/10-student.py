@@ -27,7 +27,7 @@ class Student:
         Returns:
             dict: attributes found
         """
-        if attrs is None:
+        if attrs is None or not isinstance(attrs, list):
             return self.__dict__
         dict_re = {}
         for i in attrs:
