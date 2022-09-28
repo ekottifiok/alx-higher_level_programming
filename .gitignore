@@ -4,3 +4,5 @@
 */Makefile
 */CMakeFiles
 /.idea
+*[main].c
+*[main].py
