@@ -28,12 +28,12 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """returns the JSON string representation of list_dictionaries
- 
+
         Args:
             list_dictionaries (list or dict): the data to be converted to json
 
         Returns:
-            str: a json file 
+            str: a json file
         """
         if list_dictionaries is None:
             return "[]"
@@ -44,14 +44,14 @@ class Base:
         """writes the JSON string representation of list_objs to a file
 
         Args:
-            list_objs (list): the list of 
+            list_objs (list): the list of
         """
         list_objs_list = []
         with open(f"{cls.__name__}.json", "w") as file:
             for r in list_objs:
                 list_objs_list.append(r.to_dictionary())
             file.write(cls.to_json_string(list_objs_list))
-    
+
     @classmethod
     def load_from_file(cls):
         with open(f"{cls.__name__}.json", 'r') as file:
@@ -66,7 +66,7 @@ class Base:
             to be saved in a file
         """
         list_objs_list = []
-        
+
     @staticmethod
     def from_json_string(json_string):
         if json_string is None:

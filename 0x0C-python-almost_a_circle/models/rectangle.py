@@ -32,7 +32,8 @@ class Rectangle(Base):
         Returns:
             str: custom print string
         """
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y}" \
+            f"- {self.width}/{self.height}"
 
     @property
     def width(self):
@@ -111,7 +112,7 @@ class Rectangle(Base):
 
         Args:
             value (int): the value to be set
-            param (str): the string that the value 
+            param (str): the string that the value
 
         Raises:
             TypeError: _description_
