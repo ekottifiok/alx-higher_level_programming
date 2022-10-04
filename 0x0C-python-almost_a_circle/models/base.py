@@ -5,9 +5,11 @@ the id attribute of all classes that extend
 from Base and avoid duplicate the same code.
 """
 
-from csv import reader
+from csv import DictWriter, reader
 from os import path
 import json
+from turtle import begin_fill, color, done, down, \
+    end_fill, forward, home, left, setpos, up, write
 
 
 class Base:
@@ -83,6 +85,7 @@ class Base:
                 instances.append(cls.create(**elem))
 
             return instances
+
     @classmethod
     def load_from_file_csv(cls):
         class_name = cls.__name__
@@ -103,3 +106,62 @@ class Base:
         except (FileNotFoundError,):
             pass
         return result_arr
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        class_name = cls.__name__
+        with open(f"{class_name}.csv", 'w') as file:
+            if class_name == "Rectangle":
+                arr = ["id", "width", "height", "x", "y"]
+            elif class_name == "Square":
+                arr = ["id", "size", "x", "y"]
+            else:
+                return
+            csv_writer = DictWriter(file, fieldnames=arr)
+            for r in list_objs:
+                csv_writer.writerow(r.to_dictionary())
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        if len(list_squares) == 0 and len(list_rectangles) == 0:
+            return
+
+        if list_rectangles is not []:
+            color('red', 'yellow')
+            for obj in list_rectangles:
+                down()
+                write("Rectangle", align="right")
+                begin_fill()
+                forward(obj.width)
+                left(90)
+                forward(obj.height)
+                left(90)
+                forward(obj.width)
+                left(90)
+                forward(obj.height)
+                left(90)
+                end_fill()
+                up()
+                forward(obj.width+50)
+
+        if list_squares is not []:
+            color('blue', 'green')
+            home()
+            setpos((0, 200))
+            forward(obj.width*2)
+            for obj in list_squares:
+                down()
+                write("Square", align="right")
+                begin_fill()
+                forward(obj.width)
+                left(90)
+                forward(obj.height)
+                left(90)
+                forward(obj.width)
+                left(90)
+                forward(obj.height)
+                left(90)
+                end_fill()
+                up()
+                forward(obj.width+50)
+        done()
