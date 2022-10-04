@@ -105,7 +105,6 @@ class Base:
                 arr = ["id", "size", "x", "y"]
             else:
                 return
-            # csv_reader = DictReader(file, fieldnames=arr)
             csv_reader = reader(file)
             for row in csv_reader:
                 result_arr.append(cls.create(
