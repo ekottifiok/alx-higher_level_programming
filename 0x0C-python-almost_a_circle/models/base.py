@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """Base Module"""
-
-
 from csv import DictWriter, reader
 from json import dumps, load, loads
 
@@ -11,6 +9,7 @@ class Base:
     The goal of it is to manage id attribute in all your future classes
     and to avoid duplicating the same code (by extension, same bugs)
     """
+
     __nb_objects = 0
 
     def __init__(self, id=None):
