@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """Square Module"""
-from models.rectangle import Rectangle
+try:
+    Rectangle = __import__("rectangle").Rectangle
+except ModuleNotFoundError:
+    from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
@@ -28,7 +31,9 @@ class Square(Rectangle):
         Returns:
             str: custom print string
         """
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
+        return "[Square] (:d) {:d}/{:d} - {:d}".format(
+                self.id, self.x, self.y, self.size
+            )
 
     @property
     def size(self):

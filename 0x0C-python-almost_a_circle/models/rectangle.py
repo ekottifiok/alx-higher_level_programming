@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """Rectangle Module"""
-from models.base import Base
+try:
+    Base = __import__('base').Base
+except ModuleNotFoundError:
+    from models.base import Base
 
 
 class Rectangle(Base):
