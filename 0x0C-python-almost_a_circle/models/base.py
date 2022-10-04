@@ -5,9 +5,11 @@ the id attribute of all classes that extend
 from Base and avoid duplicate the same code.
 """
 
+from csv import DictWriter, reader
 from os import path
-import json
-from turtle import begin_fill, clear, color, delay, done, down, end_fill, forward, home, left, onclick, pos, setpos, setposition, setx, up, write
+from json import loads, dumps
+from turtle import begin_fill, color, done, down, \
+    end_fill, forward, home, left, setpos, up, write
 
 
 class Base:
@@ -33,7 +35,7 @@ class Base:
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return '[]'
 
-        return json.dumps(list_dictionaries)
+        return dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -55,7 +57,7 @@ class Base:
         if json_string is None or len(json_string) == 0:
             return []
 
-        return json.loads(json_string)
+        return loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
@@ -83,6 +85,66 @@ class Base:
                 instances.append(cls.create(**elem))
 
             return instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """saves data to a csv file
+
+        Args:
+            list_objs (list): contains the list of objects
+            to be saved in a file
+        """
+        class_name = cls.__name__
+        with open(f"{class_name}.csv", 'w') as file:
+            if class_name == "Rectangle":
+                arr = ["id", "width", "height", "x", "y"]
+            elif class_name == "Square":
+                arr = ["id", "size", "x", "y"]
+            else:
+                return
+            csv_writer = DictWriter(file, fieldnames=arr)
+            for r in list_objs:
+                csv_writer.writerow(r.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """reads from a csv file
+
+        Returns:
+            class: the class to look for
+        """
+        class_name = cls.__name__
+
+        result_arr = []
+        try:
+            with open(f"{class_name}.csv", 'r') as file:
+                if class_name == "Rectangle":
+                    arr = ["id", "width", "height", "x", "y"]
+                elif class_name == "Square":
+                    arr = ["id", "size", "x", "y"]
+                else:
+                    return
+                csv_reader = reader(file)
+                for row in csv_reader:
+                    result_arr.append(cls.create(
+                        **({arr[i]: int(row[i]) for i in range(len(row))})))
+            return result_arr
+        except (FileNotFoundError,):
+            return result_arr
+
+    @staticmethod
+    def from_json_string(json_string):
+        """returns the list of the JSON string representation
+
+        Args:
+            json_string (str): the string in json
+
+        Returns:
+            str: string converted
+        """
+        if json_string is None:
+            return "[]"
+        return loads(json_string)
 
     @staticmethod
     def draw(list_rectangles, list_squares):
