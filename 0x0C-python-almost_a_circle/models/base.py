@@ -86,37 +86,45 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        def draw_square_rectangle(obj):
-            begin_fill()
-            forward(obj.width)
-            left(90)
-            forward(obj.height)
-            left(90)
-            forward(obj.width)
-            left(90)
-            forward(obj.height)
-            left(90)
-            end_fill()
-
-        color('red', 'yellow')
+        if len(list_squares) == 0 and len(list_rectangles) == 0:
+            return
 
         if list_rectangles is not []:
-            for items in list_rectangles:
+            color('red', 'yellow')
+            for obj in list_rectangles:
                 down()
                 write("Rectangle", align="right")
-                draw_square_rectangle(items)
+                begin_fill()
+                forward(obj.width)
+                left(90)
+                forward(obj.height)
+                left(90)
+                forward(obj.width)
+                left(90)
+                forward(obj.height)
+                left(90)
+                end_fill()
                 up()
-                forward(items.width+50)
+                forward(obj.width+50)
 
-        color('blue', 'green')
-        home()
-        setpos((0, 200))
-        forward(items.width*2)
         if list_squares is not []:
-            for items in list_squares:
+            color('blue', 'green')
+            home()
+            setpos((0, 200))
+            forward(obj.width*2)
+            for obj in list_squares:
                 down()
                 write("Square", align="right")
-                draw_square_rectangle(items)
+                begin_fill()
+                forward(obj.width)
+                left(90)
+                forward(obj.height)
+                left(90)
+                forward(obj.width)
+                left(90)
+                forward(obj.height)
+                left(90)
+                end_fill()
                 up()
-                forward(items.width+50)
+                forward(obj.width+50)
         done()
