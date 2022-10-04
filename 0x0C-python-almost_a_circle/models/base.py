@@ -5,6 +5,7 @@ the id attribute of all classes that extend
 from Base and avoid duplicate the same code.
 """
 
+from csv import reader
 from os import path
 import json
 
@@ -82,3 +83,23 @@ class Base:
                 instances.append(cls.create(**elem))
 
             return instances
+    @classmethod
+    def load_from_file_csv(cls):
+        class_name = cls.__name__
+
+        result_arr = []
+        try:
+            with open(f"{class_name}.csv", 'r') as file:
+                if class_name == "Rectangle":
+                    arr = ["id", "width", "height", "x", "y"]
+                elif class_name == "Square":
+                    arr = ["id", "size", "x", "y"]
+                else:
+                    return
+                csv_reader = reader(file)
+                for row in csv_reader:
+                    result_arr.append(cls.create(
+                        **({arr[i]: int(row[i]) for i in range(len(row))})))
+        except (FileNotFoundError,):
+            pass
+        return result_arr

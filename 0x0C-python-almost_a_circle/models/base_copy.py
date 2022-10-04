@@ -112,9 +112,9 @@ class Base:
                 for row in csv_reader:
                     result_arr.append(cls.create(
                         **({arr[i]: int(row[i]) for i in range(len(row))})))
-            return result_arr
         except (FileNotFoundError,):
-            return result_arr
+            pass
+        return result_arr
 
     @staticmethod
     def from_json_string(json_string):
