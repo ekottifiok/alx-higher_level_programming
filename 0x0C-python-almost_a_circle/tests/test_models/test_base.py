@@ -3,7 +3,7 @@
 A module that test differents behaviors
 of the Base class
 """
-import unittest
+from unittest import TestCase
 import pep8
 import os
 from models.base import Base
@@ -11,7 +11,7 @@ from models.rectangle import Rectangle
 from models.square import Square
 
 
-class TestBase(unittest.TestCase):
+class TestBase(TestCase):
     """
     A class to test the Base Class
     """
