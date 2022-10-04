@@ -8,8 +8,9 @@ if __name__ == '__main__':
     load_from_json_file = __import__(
         '6-load_from_json_file').load_from_json_file
     file_name = "add_item.json"
+    data = []
     try:
-        l = load_from_json_file(file_name)
+        data = load_from_json_file(file_name)
     except (FileNotFoundError, JSONDecodeError):
-        l = []
-    save_to_json_file(l + argv[1:], file_name)
+        pass
+    save_to_json_file(data + argv[1:], file_name)
