@@ -61,12 +61,15 @@ class Base:
             list: of new instances read from a file
         """
         result_arr = []
-        with open(f"{cls.__name__}.json", 'r') as file:
-            for items in load(file):
-                if not isinstance(items, dict):
-                    return
-                result_arr.append(cls.create(**items))
-        return result_arr
+        try:
+            with open(f"{cls.__name__}.json", 'r') as file:
+                for items in load(file):
+                    if not isinstance(items, dict):
+                        return
+                    result_arr.append(cls.create(**items))
+                return result_arr
+        except (FileNotFoundError,):
+            return result_arr
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
@@ -98,18 +101,21 @@ class Base:
         class_name = cls.__name__
 
         result_arr = []
-        with open(f"{class_name}.csv", 'r') as file:
-            if class_name == "Rectangle":
-                arr = ["id", "width", "height", "x", "y"]
-            elif class_name == "Square":
-                arr = ["id", "size", "x", "y"]
-            else:
-                return
-            csv_reader = reader(file)
-            for row in csv_reader:
-                result_arr.append(cls.create(
-                    **({arr[i]: int(row[i]) for i in range(len(row))})))
-        return result_arr
+        try:
+            with open(f"{class_name}.csv", 'r') as file:
+                if class_name == "Rectangle":
+                    arr = ["id", "width", "height", "x", "y"]
+                elif class_name == "Square":
+                    arr = ["id", "size", "x", "y"]
+                else:
+                    return
+                csv_reader = reader(file)
+                for row in csv_reader:
+                    result_arr.append(cls.create(
+                        **({arr[i]: int(row[i]) for i in range(len(row))})))
+            return result_arr
+        except (FileNotFoundError,):
+            return result_arr
 
     @staticmethod
     def from_json_string(json_string):
