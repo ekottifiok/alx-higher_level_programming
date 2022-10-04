@@ -32,6 +32,14 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """returns the JSON string representation of list_dictionaries
+
+        Args:
+            list_dictionaries (list or dict): the data to be converted to json
+
+        Returns:
+            str: a json file
+        """
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return '[]'
 
@@ -39,6 +47,11 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """writes the JSON string representation of list_objs to a file
+
+        Args:
+            list_objs (list): the list of
+        """
         filename = cls.__name__ + '.json'
 
         with open(filename, mode='w', encoding='utf-8') as f:
@@ -54,6 +67,14 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """returns the list of the JSON string representation
+
+        Args:
+            json_string (str): the string in json
+
+        Returns:
+            str: string converted
+        """
         if json_string is None or len(json_string) == 0:
             return []
 
@@ -61,6 +82,11 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """creates a new instance of the class
+
+        Returns:
+            class: dummy class instance
+        """
         if cls.__name__ == 'Square':
             dummy = cls(3)
 
@@ -72,6 +98,11 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """that returns a list of instances
+
+        Returns:
+            list: of new instances read from a file
+        """
         filename = cls.__name__ + '.json'
 
         if path.exists(filename) is False:
@@ -148,6 +179,12 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
+        """applies a turtle implementation of the instance
+
+        Args:
+            list_rectangles (_type_): _description_
+            list_squares (_type_): _description_
+        """
         if len(list_squares) == 0 and len(list_rectangles) == 0:
             return
 
