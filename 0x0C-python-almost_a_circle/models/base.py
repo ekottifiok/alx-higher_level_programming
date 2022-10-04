@@ -2,6 +2,7 @@
 """Base Module"""
 
 
+from csv import DictWriter, reader
 from json import dumps, load, loads
 
 
@@ -54,8 +55,18 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """that returns a list of instances
+
+        Returns:
+            list: of new instances read from a file
+        """
+        result_arr = []
         with open(f"{cls.__name__}.json", 'r') as file:
-            return load(file)
+            for items in load(file):
+                if not isinstance(items, dict):
+                    return
+                result_arr.append(cls.create(**items))
+        return result_arr
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
@@ -65,10 +76,52 @@ class Base:
             list_objs (list): contains the list of objects
             to be saved in a file
         """
-        list_objs_list = []
+        class_name = cls.__name__
+        with open(f"{class_name}.csv", 'w') as file:
+            if class_name == "Rectangle":
+                arr = ["id", "width", "height", "x", "y"]
+            elif class_name == "Square":
+                arr = ["id", "size", "x", "y"]
+            else:
+                return
+            csv_writer = DictWriter(file, fieldnames=arr)
+            for r in list_objs:
+                csv_writer.writerow(r.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """reads from a csv file
+
+        Returns:
+            class: the class to look for
+        """
+        class_name = cls.__name__
+
+        result_arr = []
+        with open(f"{class_name}.csv", 'r') as file:
+            if class_name == "Rectangle":
+                arr = ["id", "width", "height", "x", "y"]
+            elif class_name == "Square":
+                arr = ["id", "size", "x", "y"]
+            else:
+                return
+            # csv_reader = DictReader(file, fieldnames=arr)
+            csv_reader = reader(file)
+            for row in csv_reader:
+                result_arr.append(cls.create(
+                    **({arr[i]: int(row[i]) for i in range(len(row))})))
+        return result_arr
 
     @staticmethod
     def from_json_string(json_string):
+        """returns the list of the JSON string representation
+
+        Args:
+            json_string (str): the string in json
+
+        Returns:
+            str: string converted
+        """
         if json_string is None:
             return "[]"
         return loads(json_string)
