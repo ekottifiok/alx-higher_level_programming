@@ -5,7 +5,7 @@ the id attribute of all classes that extend
 from Base and avoid duplicate the same code.
 """
 
-from csv import DictWriter, reader
+import csv
 from os import path
 import json
 import turtle
@@ -98,7 +98,7 @@ class Base:
                     arr = ["id", "size", "x", "y"]
                 else:
                     return
-                csv_reader = reader(file)
+                csv_reader = csv.reader(file)
                 for row in csv_reader:
                     result_arr.append(cls.create(
                         **({arr[i]: int(row[i]) for i in range(len(row))})))
@@ -116,7 +116,7 @@ class Base:
                 arr = ["id", "size", "x", "y"]
             else:
                 return
-            csv_writer = DictWriter(file, fieldnames=arr)
+            csv_writer = csv.DictWriter(file, fieldnames=arr)
             for r in list_objs:
                 csv_writer.writerow(r.to_dictionary())
 
