@@ -7,6 +7,7 @@ from Base and avoid duplicate the same code.
 
 from os import path
 import json
+from turtle import begin_fill, clear, color, delay, done, down, end_fill, forward, home, left, onclick, pos, setpos, setposition, setx, up, write
 
 
 class Base:
@@ -82,3 +83,40 @@ class Base:
                 instances.append(cls.create(**elem))
 
             return instances
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        def draw_square_rectangle(obj):
+            begin_fill()
+            forward(obj.width)
+            left(90)
+            forward(obj.height)
+            left(90)
+            forward(obj.width)
+            left(90)
+            forward(obj.height)
+            left(90)
+            end_fill()
+
+        color('red', 'yellow')
+
+        if list_rectangles is not []:
+            for items in list_rectangles:
+                down()
+                write("Rectangle", align="right")
+                draw_square_rectangle(items)
+                up()
+                forward(items.width+50)
+
+        color('blue', 'green')
+        home()
+        setpos((0, 200))
+        forward(items.width*2)
+        if list_squares is not []:
+            for items in list_squares:
+                down()
+                write("Square", align="right")
+                draw_square_rectangle(items)
+                up()
+                forward(items.width+50)
+        done()
