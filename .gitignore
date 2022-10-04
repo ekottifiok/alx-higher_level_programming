@@ -6,7 +6,7 @@
 */Makefile
 */CMakeFiles
 /.idea
-*[main].c
-*[main].py
+*-main.c
+*-main.py
 0x0C-python-almost_a_circle/models/test.sh
 0x0C-python-almost_a_circle/models/base_afeez.py
