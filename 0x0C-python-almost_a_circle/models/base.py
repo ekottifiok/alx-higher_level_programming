@@ -8,8 +8,7 @@ from Base and avoid duplicate the same code.
 from csv import DictWriter, reader
 from os import path
 import json
-from turtle import begin_fill, color, done, down, \
-    end_fill, forward, home, left, setpos, up, write
+import turtle
 
 
 class Base:
@@ -127,41 +126,41 @@ class Base:
             return
 
         if list_rectangles is not []:
-            color('red', 'yellow')
+            turtle.color('red', 'yellow')
             for obj in list_rectangles:
-                down()
-                write("Rectangle", align="right")
-                begin_fill()
-                forward(obj.width)
-                left(90)
-                forward(obj.height)
-                left(90)
-                forward(obj.width)
-                left(90)
-                forward(obj.height)
-                left(90)
-                end_fill()
-                up()
-                forward(obj.width+50)
+                turtle.down()
+                turtle.write("Rectangle", align="right")
+                turtle.begin_fill()
+                turtle.forward(obj.width)
+                turtle.left(90)
+                turtle.forward(obj.height)
+                turtle.left(90)
+                turtle.forward(obj.width)
+                turtle.left(90)
+                turtle.forward(obj.height)
+                turtle.left(90)
+                turtle.end_fill()
+                turtle.up()
+                turtle.forward(obj.width+50)
 
         if list_squares is not []:
-            color('blue', 'green')
-            home()
-            setpos((0, 200))
-            forward(obj.width*2)
+            turtle.color('blue', 'green')
+            turtle.home()
+            turtle.setpos((0, 200))
+            turtle.forward(obj.width*2)
             for obj in list_squares:
-                down()
-                write("Square", align="right")
-                begin_fill()
-                forward(obj.width)
-                left(90)
-                forward(obj.height)
-                left(90)
-                forward(obj.width)
-                left(90)
-                forward(obj.height)
-                left(90)
-                end_fill()
-                up()
-                forward(obj.width+50)
-        done()
+                turtle.down()
+                turtle.write("Square", align="right")
+                turtle.begin_fill()
+                turtle.forward(obj.width)
+                turtle.left(90)
+                turtle.forward(obj.height)
+                turtle.left(90)
+                turtle.forward(obj.width)
+                turtle.left(90)
+                turtle.forward(obj.height)
+                turtle.left(90)
+                turtle.end_fill()
+                turtle.up()
+                turtle.forward(obj.width+50)
+        turtle.done()
