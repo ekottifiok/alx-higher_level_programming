@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "0x0B-python-input_output"
+		},
+		{
+			"path": "0x0C-python-almost_a_circle"
+		},
+		{
+			"path": "0x0A-python-inheritance"
+		},
+		{
+			"path": "0x08-python-more_classes"
+		},
+		{
+			"path": "0x09-python-everything_is_object"
+		},
+		{
+			"path": "0x0D-SQL_introduction"
+		}
+	],
+	"settings": {}
+}
