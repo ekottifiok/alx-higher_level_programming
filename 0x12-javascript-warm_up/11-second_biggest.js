@@ -1,16 +1,19 @@
 #!/usr/bin/node
 
-let x, y = -9999999999999, z = -9999999999999;
-
-process.argv.forEach((val, index) => {
-    if (index >= 2) {
-        x = parseInt(val);
-        if (x > y) {
-            z = y;
-            y = x;
-        }
-
+const len = process.argv.length;
+if (len < 4) {
+  console.log(0);
+} else {
+  let largest = parseInt(process.argv[2]);
+  let secondLargest = parseInt(process.argv[3]);
+  for (let index = 2; index < len; index++) {
+    const x = parseInt(process.argv[index]);
+    if (x > largest) {
+      secondLargest = largest;
+      largest = x;
+    } else if (x > secondLargest) {
+      secondLargest = x;
     }
-});
-console.log(y);
-console.log(z);
+  }
+  console.log(secondLargest);
+}
