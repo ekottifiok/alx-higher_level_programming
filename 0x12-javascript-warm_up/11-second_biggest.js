@@ -7,16 +7,15 @@ if (len < 4) {
   let largest = parseInt(process.argv[2]);
   let secondLargest = parseInt(process.argv[3]);
 
-  if (len === 4)
-  {
-    if (largest > secondLargest){
+  if (len === 4) {
+    if (largest > secondLargest) {
       console.log(secondLargest);
     } else {
       console.log(largest);
     }
   } else {
     for (let index = 2; index < len; index++) {
-      let x = parseInt(process.argv[index]);
+      const x = parseInt(process.argv[index]);
       if (x > largest) {
         secondLargest = largest;
         largest = x;
