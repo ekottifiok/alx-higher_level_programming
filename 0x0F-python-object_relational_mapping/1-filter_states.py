@@ -10,7 +10,7 @@ from sys import argv
 if __name__ == '__main__':
     """
     Access to the database and get the states
-    from the database. Filter the results and get 
+    from the database. Filter the results and get
     results that starts with 'n'
     """
     db = MySQLdb.connect(

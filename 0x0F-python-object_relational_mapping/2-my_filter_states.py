@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Write a script that takes in an argument and 
-displays all values in the states table of 
+Write a script that takes in an argument and
+displays all values in the states table of
 hbtn_0e_0_usa where name matches the argument.
 """
 import MySQLdb
@@ -10,7 +10,7 @@ from sys import argv
 if __name__ == '__main__':
     """
     Access to the database and get the states
-    from the database. Filter the results and get 
+    from the database. Filter the results and get
     results that match the user input
     """
     db = MySQLdb.connect(
@@ -25,4 +25,3 @@ if __name__ == '__main__':
         name LIKE BINARY '{}' ORDER BY states.id ASC".format(argv[4]))
     for row in cur.fetchall():
         print(row)
-    

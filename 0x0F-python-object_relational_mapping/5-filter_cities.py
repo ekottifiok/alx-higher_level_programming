@@ -15,10 +15,11 @@ if __name__ == '__main__':
     )
     cur = db.cursor()
     cur.execute("SELECT cities.name FROM cities JOIN \
-            states ON cities.state_id=states.id WHERE states.name LIKE BINARY %(state_name)s \
+            states ON cities.state_id=states.id WHERE \
+            states.name LIKE BINARY %(state_name)s \
             ORDER BY cities.id ASC", {
-            'state_name': argv[4]
-        })
+        'state_name': argv[4]
+    })
     rows = cur.fetchall()
     if rows is not None:
         print(", ".join([row[0] for row in rows]))
