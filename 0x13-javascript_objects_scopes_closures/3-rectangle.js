@@ -9,4 +9,13 @@ module.exports = class Rectangle {
       this.height = height;
     }
   }
+
+  print () {
+    for (let index = 0; index < this.height; index++) {
+      for (let index2 = 0; index2 < this.width; index2++) {
+        process.stdout.write('X');
+      }
+      console.log();
+    }
+  }
 };
