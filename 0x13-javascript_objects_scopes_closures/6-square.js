@@ -9,8 +9,17 @@ module.exports = class Square extends SquareRequired {
     super(size, size);
   }
 
-  charPrint (c = 'X') {
-    super.print(c);
+  charPrint (c) {
+    if (typeof c === 'undefined') {
+      super.print(c);
+    } else {
+      for (let index = 0; index < this.height; index++) {
+        for (let index2 = 0; index2 < this.width; index2++) {
+          process.stdout.write(c);
+        }
+        console.log();
+      }
+    }
   }
 
   double () {

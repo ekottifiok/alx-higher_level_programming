@@ -4,7 +4,7 @@
 exports.esrever = function (list) {
   let listLen = list.length;
   if (listLen === 0) {
-    return []
+    return [];
   }
   const newArray = new Array(--listLen);
   list.forEach((element, index) => {
