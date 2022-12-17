@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Find the peak in an array"""
 
+
 def FindAPeak(arr, i, j):
     """Binary Search"""
     mid = int((i + j) / 2)
