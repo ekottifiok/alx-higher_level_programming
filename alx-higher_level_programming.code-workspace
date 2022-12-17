@@ -29,6 +29,9 @@
 		},
 		{
 			"path": "0x0F-python-object_relational_mapping"
+		},
+		{
+			"path": "0x10-python-network_0"
 		}
 	],
 	"settings": {}
