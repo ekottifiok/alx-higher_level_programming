@@ -8,5 +8,7 @@ from sys import argv
 
 if __name__ == '__main__':
     """The email must be sent in the email variable"""
-    with urlopen(Request(argv[1], urlencode({'email': argv[2]}).encode())) as response:
+    with urlopen(Request(
+            argv[1],
+            urlencode({'email': argv[2]}).encode())) as response:
         print("Your email is: {}".format(argv[2]))
