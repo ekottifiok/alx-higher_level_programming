@@ -35,6 +35,9 @@
 		},
 		{
 			"path": "0x11-python-network_1"
+		},
+		{
+			"path": "0x14-javascript-web_scraping"
 		}
 	],
 	"settings": {}
