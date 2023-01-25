@@ -38,7 +38,12 @@
 		},
 		{
 			"path": "0x14-javascript-web_scraping"
+		},
+		{
+			"path": "0x15-javascript-web_jquery"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "0x15-javascript-web_jquery"
+	}
 }
