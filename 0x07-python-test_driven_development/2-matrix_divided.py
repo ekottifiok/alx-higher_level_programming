@@ -34,3 +34,5 @@ def matrix_divided(matrix, div):
         raise ZeroDivisionError("division by zero")
 
     return ([list(map(lambda x: round(x / div, 2), row)) for row in matrix])
+
+    if (not isinstance(matrix, list) or matrix == [] or not all(isinstance(row, list) for row in matrix))

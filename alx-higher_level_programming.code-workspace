@@ -1,45 +1,63 @@
 {
 	"folders": [
 		{
+			"name": "0x0B-python-input_output",
 			"path": "0x0B-python-input_output"
 		},
 		{
+			"name": "0x0C-python-almost_a_circle",
 			"path": "0x0C-python-almost_a_circle"
 		},
 		{
+			"name": "0x07-python-test_driven_development",
+			"path": "0x07-python-test_driven_development"
+		},
+		{
+			"name": "0x0A-python-inheritance",
 			"path": "0x0A-python-inheritance"
 		},
 		{
+			"name": "0x08-python-more_classes",
 			"path": "0x08-python-more_classes"
 		},
 		{
+			"name": "0x09-python-everything_is_object",
 			"path": "0x09-python-everything_is_object"
 		},
 		{
+			"name": "0x0D-SQL_introduction",
 			"path": "0x0D-SQL_introduction"
 		},
 		{
+			"name": "0x0E-SQL_more_queries",
 			"path": "0x0E-SQL_more_queries"
 		},
 		{
+			"name": "0x12-javascript-warm_up",
 			"path": "0x12-javascript-warm_up"
 		},
 		{
+			"name": "0x13-javascript_objects_scopes_closures",
 			"path": "0x13-javascript_objects_scopes_closures"
 		},
 		{
+			"name": "0x0F-python-object_relational_mapping",
 			"path": "0x0F-python-object_relational_mapping"
 		},
 		{
+			"name": "0x10-python-network_0",
 			"path": "0x10-python-network_0"
 		},
 		{
+			"name": "0x11-python-network_1",
 			"path": "0x11-python-network_1"
 		},
 		{
+			"name": "0x14-javascript-web_scraping",
 			"path": "0x14-javascript-web_scraping"
 		},
 		{
+			"name": "0x15-javascript-web_jquery",
 			"path": "0x15-javascript-web_jquery"
 		}
 	],

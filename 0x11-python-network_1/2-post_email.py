@@ -10,5 +10,5 @@ if __name__ == '__main__':
     """The email must be sent in the email variable"""
     with urlopen(Request(
             argv[1],
-            urlencode({'email': argv[2]}).encode())) as response:
-        print("Your email is: {}".format(argv[2]))
+            urlencode({'email': argv[2]}).encode('ascii'))) as response:
+        print(response.read().decode("utf-8", "replace"))

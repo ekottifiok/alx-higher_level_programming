@@ -48,8 +48,8 @@ class Rectangle:
     def __str__(self) -> str:
         value = ""
         if self.__width > 0 and self.__height > 0:
-            for i in range(self.__height):
+            for i in range(self.__height):  #[0,1,2,3]
                 value += ("#"*self.__width)
-                if i < self.__height - 1:
+                if i != self.__height-1:
                     value += '\n'
         return value
