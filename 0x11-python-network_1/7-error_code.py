@@ -6,7 +6,7 @@ from requests import request
 from sys import argv
 
 if __name__ == '__main__':
-    """"""
+    """If the HTTP status code is greater than or equal to 400"""
     with request('GET', argv[1]) as response:
         if response.status_code >= 400:
             print('Error code: {}'.format(response.status_code))
