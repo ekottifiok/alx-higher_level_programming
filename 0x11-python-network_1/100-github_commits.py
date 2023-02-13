@@ -6,7 +6,9 @@ from sys import argv
 
 if __name__ == '__main__':
     """The first argument will be the repository name"""
-    with request('GET', 'https://api.github.com/repos/rails/rails/commits') as response:
+    with request(
+            'GET',
+            'https://api.github.com/repos/rails/rails/commits') as response:
         if response.status_code >= 400:
             print(None)
         try:
